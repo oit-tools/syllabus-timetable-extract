@@ -16,11 +16,9 @@ def main():
         extract.unpack(YEAR, "csv")
 
     # pdfから講義コードを抽出して辞書に追加
-    pdf_numbering = extract.pdf(YEAR)
-    numbering.update(pdf_numbering)
+    numbering.update(extract.pdf(YEAR))
     # csvから講義コードを抽出して辞書に追加
-    csv_numbering = extract.csv(YEAR)
-    numbering.update(csv_numbering)
+    numbering.update(extract.csv(YEAR))
 
     # 値の重複を削除、ソート
     for key in numbering.keys():
@@ -31,6 +29,10 @@ def main():
     # jsonに保存
     with open(f"./data/{YEAR}/numbering.json", "w") as f:
         json.dump(numbering, f, ensure_ascii=False, indent=4)
+
+    # jsonのキーをcsvに保存
+    with open(f"./data/{YEAR}/department.csv", "w") as f:
+        [f.write(f"{key}\n") for key in numbering.keys()]
 
 
 if __name__ == "__main__":
