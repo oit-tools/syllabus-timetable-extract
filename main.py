@@ -5,8 +5,8 @@ import extract
 
 
 def main():
-    YEAR = "2022"
-    numbering = dict()
+    YEAR: str = "2022"
+    numbering: dict = dict()
 
     # pdfの展開
     if not os.path.exists(f"./data/{YEAR}/pdf"):
