@@ -30,10 +30,6 @@ def main():
     with open(f"./data/{YEAR}/numbering.json", "w") as f:
         json.dump(numbering, f, ensure_ascii=False, indent=4)
 
-    # jsonのキーをcsvに保存
-    with open(f"./data/{YEAR}/department.csv", "w") as f:
-        [f.write(f"{key}\n") for key in numbering.keys()]
-
 
 if __name__ == "__main__":
     main()
