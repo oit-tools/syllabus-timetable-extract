@@ -30,6 +30,12 @@ def main():
     with open(f"./data/{YEAR}/numbering.json", "w") as f:
         json.dump(numbering, f, ensure_ascii=False, indent=4)
 
+    # numbering,urlとしてcsvに保存
+    with open(f"./data/{YEAR}/numbering_url.csv", "w") as f:
+        for key in numbering.keys():
+            for value in numbering[key]:
+                url = extract.url(YEAR, value)
+                f.write(f"{key},{url}\n")
 
 if __name__ == "__main__":
     main()

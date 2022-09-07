@@ -47,3 +47,7 @@ def csv(year: str) -> dict:
         numbering_dict[name] = numbering
 
     return numbering_dict
+
+
+def url(year: str, numbering: str) -> dict:
+    return f"https://www.portal.oit.ac.jp/CAMJWEB/slbssbdr.do?value(risyunen)={year}&value(semekikn)=1&value(kougicd)={numbering}&value(crclumcd)=10201200"
